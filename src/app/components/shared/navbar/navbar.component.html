@@ -1,0 +1,72 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="isExpanded" [fixedInViewport]="true">
+        <section>
+            <div class="overflow-auto">
+                <mat-accordion *ngIf="menuList.length !== 0;else noMenuFound">
+                    <ng-container *ngFor="let menu of menuList">
+                        <div class="panel-alternative" [routerLink]="menu.action"
+                            routerLinkActive="panel-alternative-active" [routerLinkActiveOptions]="{exact: true}">
+                            <div class="inner-body">
+                                <mat-icon class="mx-2">{{menu.icon}}</mat-icon>
+                                {{menu.name}}
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-accordion>
+                <ng-template #noMenuFound>
+                    <div class="text-center">
+                        no menu found...
+                    </div>
+                </ng-template>
+            </div>
+        </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <mat-toolbar-row [style.background]="'#4950B3'">
+                <div class="d-flex justify-content-end align-items-center w-100 text-white">
+                    <div class="left-content d-flex align-items-center d-md-none d-lg-none" *ngIf="showMenu">
+                        <mat-icon *ngIf="!sidenav.opened" (click)="sidenav.toggle()" matTooltip="Open menu"
+                            matTooltipShowDelay="1000" aria-label="open menu">
+                            menu</mat-icon>
+                        <mat-icon *ngIf="sidenav.opened" (click)="sidenav.toggle()"
+                            style="vertical-align: bottom;cursor: pointer;" matTooltip="Close menu"
+                            matTooltipShowDelay="1000">arrow_back
+                        </mat-icon>
+                    </div>
+                    <div class="right-content d-flex align-items-center justify-content-between">
+                        <span class="mx-3 align-self-end d-flex">
+                            <mat-icon class="svg-small align-center">notifications_active</mat-icon>
+                            <span class="user-name-nav mx-1 d-none d-sm-flex">
+                                System Notification
+                            </span>
+                        </span>
+                        <span class="mx-3 align-self-end d-flex">
+                            <mat-icon class="svg-small align-center">warning</mat-icon>
+                            <span class="user-name-nav mx-1 d-none d-sm-flex">
+                                System Alerts
+                            </span>
+                        </span>
+                        <span class="mx-3 align-self-end d-flex">
+                            <mat-icon class="svg-small align-center">account_circle</mat-icon>
+                            <span class="user-name-nav mx-1 d-none d-sm-flex">
+                                admin
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row *ngIf="!showMenu">
+                <ng-container class="d-flex justify-content-start align-items-center w-100"
+                    *ngFor="let menu of menuList">
+                    <div class="panel-horizontal mx-2 d-flex" [routerLink]="menu.action"
+                        routerLinkActive="panel-alternative-active" [routerLinkActiveOptions]="{exact: true}">
+                        <mat-icon class="align-center customer-data-icon mx-1">{{menu.icon}}</mat-icon>
+                        <span class="customer-data">{{menu.name}}</span>
+                    </div>
+                </ng-container>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
