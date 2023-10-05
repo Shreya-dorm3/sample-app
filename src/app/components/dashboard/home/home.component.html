@@ -1,1 +1,43 @@
-<app-navbar></app-navbar>
+<app-navbar>
+    <div class="container-fluid">
+        <div class="row h-100 w-100">
+            <div class="row d-flex justify-content-between g-0 p-3">
+                <div class="col-sm-3">
+                    <h2>Home - Dashboard</h2>
+                </div>
+                <div class="col-sm-3 text-end">
+                    <button mat-flat-button color="primary"> Organization Summary</button>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-evenly">
+                <div class="col-sm-3">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-3">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-3">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-3">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-4">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-4">
+                    <mat-card></mat-card>
+                </div>
+                <div class="col-sm-4">
+                    <mat-card>
+                        <div id="chart">
+                            <apx-chart [series]="barChartTraffic.series" [chart]="barChartTraffic.chart"
+                                [dataLabels]="barChartTraffic.dataLabels" [plotOptions]="barChartTraffic.plotOptions"
+                                [xaxis]="barChartTraffic.xaxis"></apx-chart>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-navbar>
