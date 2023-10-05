@@ -1,6 +1,10 @@
 # SampleApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+
+# Running on local machine
+
+After cloning the project, run `npm i` to install all the dependencies required to run the project. Please make sure you have node and angular installed on your local machine.
 
 ## Development server
 
