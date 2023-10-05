@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ChartComponent, ApexDataLabels, ApexXAxis, ApexPlotOptions, ApexTitleSubtitle, ApexStroke, ApexGrid, ApexLegend, ApexMarkers, ApexTheme } from "ng-apexcharts";
 import { DashbboardService } from '../dashbboard.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -25,6 +23,11 @@ export interface TableData {
   events: number;
   threats: number;
 }
+
+/**
+ * This component use ng-apexcharts for the creation of different types of charts on the dashboard
+ * The graphs shown on dashboards are- line, bar, heatmap, multiple line graphs
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -41,14 +44,13 @@ export class HomeComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   dataSource: MatTableDataSource<TableData> = new MatTableDataSource();
   displayedColumns: string[] = ['organization', 'activeSources', 'events', 'threats'];
-  @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
-    this.dataSource.paginator = paginator;
-  }
-  @ViewChild(MatSort) set matSort(sort: MatSort) {
-    this.dataSource.sort = sort
-  }
 
   constructor(private service: DashbboardService) { }
+
+  /**
+   * The functions called at onInit are all used to initialize data for multiple graphs on the screen.
+   * These are called only once, as the data is static for now
+   */
 
   ngOnInit(): void {
     this.heatMapData = {
@@ -146,6 +148,12 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  /**
+   * @param count 
+   * @param yrange 
+   * @returns the random array value for heatmap, for dummy data presentation
+   */
 
   generateData(count: number, yrange: { min: number; max: number }) {
     var i = 0;
