@@ -23,7 +23,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar>
-            <mat-toolbar-row [style.background]="'#4950B3'">
+            <mat-toolbar-row [style.background]="'#2c3e50'">
                 <div class="d-flex justify-content-end align-items-center w-100 text-white">
                     <div class="left-content d-flex align-items-center d-md-none d-lg-none" *ngIf="showMenu">
                         <mat-icon *ngIf="!sidenav.opened" (click)="sidenav.toggle()" matTooltip="Open menu"
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </mat-toolbar-row>
-            <mat-toolbar-row *ngIf="!showMenu">
+            <mat-toolbar-row *ngIf="!showMenu" [style.background]="'#F8F9FB'">
                 <ng-container class="d-flex justify-content-start align-items-center w-100"
                     *ngFor="let menu of menuList">
                     <div class="panel-horizontal mx-2 d-flex" [routerLink]="menu.action"

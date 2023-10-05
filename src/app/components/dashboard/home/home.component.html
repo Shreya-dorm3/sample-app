@@ -1,41 +1,111 @@
 <app-navbar>
     <div class="container-fluid">
-        <div class="row h-100 w-100">
-            <div class="row d-flex justify-content-between g-0 p-3">
-                <div class="col-sm-3">
+        <div class="row h-100 w-100 container-block">
+            <div class="row d-flex justify-content-between g-0 p-2">
+                <div class="col-sm-4">
                     <h2>Home - Dashboard</h2>
                 </div>
-                <div class="col-sm-3 text-end">
-                    <button mat-flat-button color="primary"> Organization Summary</button>
+                <div class="col-sm-8 text-end">
+                    <button [style.background]="'#56B79E'" class="text-white" mat-flat-button> Organization
+                        Summary</button>
                 </div>
             </div>
-            <div class="row d-flex justify-content-evenly">
-                <div class="col-sm-3">
-                    <mat-card></mat-card>
+            <div class="row d-flex justify-content-between m-auto h-90 w-100">
+                <div class="col-lg-3 col-sm-12 block-container card-bg-one text-white">
+                    <div class="h4 m-1">167540</div>
+                    <span class="m-1">Today's log events : </span>
+                    <span>652,435,765 per hour</span>
+                    <apx-chart [series]="dummyStats.series" [chart]="dummyStats.chart"
+                        [dataLabels]="dummyStats.dataLabels" [plotOptions]="dummyStats.plotOptions"
+                        [xaxis]="dummyStats.xaxis" [yaxis]="dummyStats.yaxis" [title]="dummyStats.title"
+                        [grid]="dummyStats.grid"></apx-chart>
                 </div>
-                <div class="col-sm-3">
-                    <mat-card></mat-card>
+                <div class="col-lg-3 col-sm-12 block-container card-bg-three text-white">
+                    <div class="h4 m-1">46</div>
+                    <span class="m-1">Today's threat signature matches : </span>
+                    <span>45 avg today</span>
+                    <apx-chart [series]="dummyStats.series" [chart]="dummyStats.chart"
+                        [dataLabels]="dummyStats.dataLabels" [plotOptions]="dummyStats.plotOptions"
+                        [xaxis]="dummyStats.xaxis" [yaxis]="dummyStats.yaxis" [title]="dummyStats.title"
+                        [grid]="dummyStats.grid"></apx-chart>
                 </div>
-                <div class="col-sm-3">
-                    <mat-card></mat-card>
+                <div class="col-lg-3 col-sm-12 block-container card-bg-two text-white">
+                    <div class="h4 m-1">690</div>
+                    <span class="m-1">Today's alert : </span>
+                    <span>876 avg per hour</span>
+                    <apx-chart [series]="dummyStats.series" [chart]="dummyStats.chart"
+                        [dataLabels]="dummyStats.dataLabels" [plotOptions]="dummyStats.plotOptions"
+                        [xaxis]="dummyStats.xaxis" [yaxis]="dummyStats.yaxis" [title]="dummyStats.title"
+                        [grid]="dummyStats.grid"></apx-chart>
                 </div>
-                <div class="col-sm-3">
-                    <mat-card></mat-card>
+                <div class="col-lg-3 col-sm-12 block-container card-bg-four text-white">
+                    <div class="h4 m-1">76</div>
+                    <span class="m-1">Today's suspicious events : </span>
+                    <span>61</span>
+                    <apx-chart [series]="dummyStats.series" [chart]="dummyStats.chart"
+                        [dataLabels]="dummyStats.dataLabels" [plotOptions]="dummyStats.plotOptions"
+                        [xaxis]="dummyStats.xaxis" [yaxis]="dummyStats.yaxis" [title]="dummyStats.title"
+                        [grid]="dummyStats.grid"></apx-chart>
                 </div>
-                <div class="col-sm-4">
-                    <mat-card></mat-card>
+                <div class="col-lg-4 col-sm-12 block-container">
+                    <apx-chart [series]="overallTraffic.series" [chart]="overallTraffic.chart"
+                        [xaxis]="overallTraffic.xaxis" [dataLabels]="overallTraffic.dataLabels"
+                        [grid]="overallTraffic.grid" [stroke]="overallTraffic.stroke"
+                        [title]="overallTraffic.title"></apx-chart>
                 </div>
-                <div class="col-sm-4">
-                    <mat-card></mat-card>
+                <div class="col-lg-4 col-sm-12 block-container">
+                    <apx-chart [series]="sourceLog.series" [chart]="sourceLog.chart" [xaxis]="sourceLog.xaxis"
+                        [stroke]="sourceLog.stroke" [tooltip]="sourceLog.tooltip" [dataLabels]="sourceLog.dataLabels"
+                        [legend]="sourceLog.legend" [markers]="sourceLog.markers" [grid]="sourceLog.grid"
+                        [yaxis]="sourceLog.yaxis" [title]="sourceLog.title" [theme]="sourceLog.theme"></apx-chart>
                 </div>
-                <div class="col-sm-4">
-                    <mat-card>
-                        <div id="chart">
-                            <apx-chart [series]="barChartTraffic.series" [chart]="barChartTraffic.chart"
-                                [dataLabels]="barChartTraffic.dataLabels" [plotOptions]="barChartTraffic.plotOptions"
-                                [xaxis]="barChartTraffic.xaxis"></apx-chart>
+                <div class="col-lg-4 col-sm-12 block-container">
+                    <apx-chart [series]="barChartTraffic.series" [chart]="barChartTraffic.chart"
+                        [dataLabels]="barChartTraffic.dataLabels" [plotOptions]="barChartTraffic.plotOptions"
+                        [xaxis]="barChartTraffic.xaxis" [title]="barChartTraffic.title"
+                        [grid]="barChartTraffic.grid"></apx-chart>
+                </div>
+                <div class="col-lg-4 col-sm-12 block-container" [style.height]="'21rem'">
+                    <apx-chart [series]="heatMapData.series" [chart]="heatMapData.chart"
+                        [dataLabels]="heatMapData.dataLabels" [title]="heatMapData.title" [colors]="heatMapData.colors"
+                        [legend]="heatMapData.legend"></apx-chart>
+                </div>
+                <div class="col-lg-4 col-sm-12 block-container overflow-auto">
+                    <div class="d-flex justify-content-between m-1">
+                        <div class="heading-data p-1">Organization Statistics</div>
+                        <div class="d-flex m-1">
+                            <span>Last 1 hour</span>
+                            <mat-icon class="align-center">refresh</mat-icon>
                         </div>
-                    </mat-card>
+                    </div>
+                    <div class="d-flex">
+                        <table mat-table [dataSource]="dataSource">
+                            <ng-container matColumnDef="organization">
+                                <th mat-header-cell *matHeaderCellDef>Organization</th>
+                                <td mat-cell *matCellDef="let element">{{element.organization}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="activeSources">
+                                <th mat-header-cell *matHeaderCellDef>Active Sources</th>
+                                <td mat-cell *matCellDef="let element">{{element.activeSources}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="events">
+                                <th mat-header-cell *matHeaderCellDef>Events</th>
+                                <td mat-cell *matCellDef="let element">{{element.events}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="threats">
+                                <th mat-header-cell *matHeaderCellDef>Threats</th>
+                                <td mat-cell *matCellDef="let element">{{element.threats}}</td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 block-container">
+                    <apx-chart [series]="barChartLog.series" [chart]="barChartLog.chart"
+                        [dataLabels]="barChartLog.dataLabels" [plotOptions]="barChartLog.plotOptions"
+                        [xaxis]="barChartLog.xaxis" [title]="barChartLog.title" [grid]="barChartLog.grid"></apx-chart>
                 </div>
             </div>
         </div>

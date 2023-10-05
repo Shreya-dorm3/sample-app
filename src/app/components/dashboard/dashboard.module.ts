@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -15,7 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -25,18 +25,21 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    NgApexchartsModule,
+    MatSlideToggleModule,
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
     MatTooltipModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    FormsModule,
     MatCheckboxModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    NgApexchartsModule
-  ]
+    MatInputModule,
+    MatSortModule
+    
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardModule { }
